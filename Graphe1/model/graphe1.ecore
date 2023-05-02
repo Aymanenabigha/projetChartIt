@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="graphe1" nsURI="http://www.example.org/graphe1" nsPrefix="graphe1">
+  <eClassifiers xsi:type="ecore:EEnum" name="Couleurs">
+    <eLiterals name="red"/>
+    <eLiterals name="blue" value="1"/>
+    <eLiterals name="green" value="2"/>
+    <eLiterals name="pink" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Name" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Colonne" eSuperTypes="#//Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Couleurs"
+        defaultValueLiteral="red"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Donner" eSuperTypes="#//Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Programme" eSuperTypes="#//Name">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="graphe" upperBound="-1"
+        eType="#//Graphe" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonne" upperBound="-1"
+        eType="#//Colonne" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="donner" upperBound="-1"
+        eType="#//Donner" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Graphe" eSuperTypes="#//Name">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeGraphe"
+        defaultValueLiteral="line"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bagColor" eType="#//Couleurs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonne" lowerBound="1"
+        upperBound="-1" eType="#//Colonne"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1" eType="#//Donner"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeGraphe">
+    <eLiterals name="line"/>
+    <eLiterals name="bar" value="1"/>
+    <eLiterals name="pie" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

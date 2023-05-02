@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated graphe1 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="graphe1.presentation.Graphe1ModelWizardID"
+            name="%_UI_Graphe1ModelWizard_label"
+            class="graphe1.presentation.Graphe1ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Graphe1ModelFile.gif">
+         <description>%_UI_Graphe1ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated graphe1 -->
+      <editor
+            id="graphe1.presentation.Graphe1EditorID"
+            name="%_UI_Graphe1Editor_label"
+            icon="icons/full/obj16/Graphe1ModelFile.gif"
+            extensions="graphe1"
+            class="graphe1.presentation.Graphe1Editor"
+            contributorClass="graphe1.presentation.Graphe1ActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
